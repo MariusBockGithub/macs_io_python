@@ -11,24 +11,25 @@ project(
 
 # Find the module development requirements (requires FindPython from 3.17 or
 # scikit-build-core's built-in backport)
-find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
-find_package(pybind11 CONFIG REQUIRED)
+find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 find_package(pybind11 CONFIG REQUIRED)
 
 # opencv-devel needs to be installed on the target machine
 find_package(OpenCV 4.5 REQUIRED COMPONENTS core imgproc imgcodecs)
 
 # Qt-devel needs to be installed on the target machine
-find_package(Qt6 REQUIRED)
-
+find_package(Qt6 REQUIRED Components Core Gui)
 
 # Add a library using FindPython's tooling (pybind11 also provides a helper like
 # this)
-python_add_library(_core MODULE src/main.cpp WITH_SOABI)
-target_link_libraries(_core PRIVATE pybind11::headers)
+Python3_add_library(macs_io_python src/macs_io_python.cpp)
+target_link_libraries(macs_io_python PRIVATE pybind11::headers)
+set_target_properties(macs_io_python PROPERTIES
+			VISIBILITY_INLINES_HIDDEN ON
+			OUTPUT_NAME macs_io_python)
 
 # This is passing in the version as a define just as an example
-target_compile_definitions(_core PRIVATE VERSION_INFO=${PROJECT_VERSION})
+target_compile_definitions(macs_io_python PRIVATE VERSION_INFO=${PROJECT_VERSION})
 
 # The install directory is the output (wheel) directory
-install(TARGETS _core DESTINATION scikit_build_example)
+install(TARGETS macs_io_python DESTINATION macs_io_python)
