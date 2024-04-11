@@ -28,7 +28,7 @@ find_package(macs_io REQUIRED)
 # Add a library using FindPython's tooling (pybind11 also provides a helper like
 # this)
 Python3_add_library(macs_io_python src/macs_io_python.cpp)
-target_link_libraries(macs_io_python pybind11::headers Python3::Python Qt6::Core Qt6::Gui ${OpenCV_LIBS} macs_io)
+target_link_libraries(macs_io_python PRIVATE pybind11::headers Python3::Python Qt6::Core Qt6::Gui ${OpenCV_LIBS} macs_io)
 set_target_properties(macs_io_python PROPERTIES
 			VISIBILITY_INLINES_HIDDEN ON
 			OUTPUT_NAME macs_io_python)
