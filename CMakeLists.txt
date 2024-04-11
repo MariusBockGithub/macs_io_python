@@ -15,7 +15,7 @@ project(
 # Find the module development requirements (requires FindPython from 3.17 or
 # scikit-build-core's built-in backport)
 find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
-find_package(pybind11 CONFIG REQUIRED)
+find_package(pybind11 REQUIRED)
 
 # opencv-devel needs to be installed on the target machine
 find_package(OpenCV 4.5 REQUIRED COMPONENTS core imgproc imgcodecs)
