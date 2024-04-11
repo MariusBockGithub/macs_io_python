@@ -18,7 +18,7 @@ find_package(pybind11 CONFIG REQUIRED)
 find_package(OpenCV 4.5 REQUIRED COMPONENTS core imgproc imgcodecs)
 
 # Qt-devel needs to be installed on the target machine
-find_package(Qt6 REQUIRED COMPONENTS Core Gui)
+find_package(Qt6 REQUIRED Core Gui)
 
 find_package(macs_io REQUIRED)
 
