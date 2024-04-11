@@ -1,12 +1,9 @@
 #pragma push_macro("slots")
 #undef slots
-
 #include <pybind11/pybind11.h>
 #include <pybind11/chrono.h>
 #include <pybind11/numpy.h>
-
 #pragma pop_macro("slots")
-
 #include "macs_io.h"
 
 namespace py = pybind11;
