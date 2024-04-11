@@ -33,8 +33,5 @@ set_target_properties(macs_io_python PROPERTIES
 			VISIBILITY_INLINES_HIDDEN ON
 			OUTPUT_NAME macs_io_python)
 
-# This is passing in the version as a define just as an example
-target_compile_definitions(macs_io_python VERSION_INFO=${PROJECT_VERSION})
-
 # The install directory is the output (wheel) directory
 install(TARGETS macs_io_python DESTINATION macs_io_python)
