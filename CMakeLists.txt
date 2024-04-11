@@ -20,6 +20,8 @@ find_package(OpenCV 4.5 REQUIRED COMPONENTS core imgproc imgcodecs)
 # Qt-devel needs to be installed on the target machine
 find_package(Qt6 REQUIRED Components Core Gui)
 
+find_package(macs_io REQUIRED)
+
 # Add a library using FindPython's tooling (pybind11 also provides a helper like
 # this)
 Python3_add_library(macs_io_python src/macs_io_python.cpp)
